@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/contentView"
+    tools:context=".activity.DistributeActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/my_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/white"
+            app:navigationIcon="@drawable/ic_baseline_arrow_back_24">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="分配产品溯源"
+                android:textColor="@color/black"
+                android:textSize="22sp" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:padding="20dp"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/et_save"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="false"
+                android:textColor="@color/black"
+                android:layout_marginTop="20dp"
+                android:hint="存放位置"
+                />
+            <EditText
+                android:id="@+id/et_information"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:padding="10dp"
+                android:minLines="5"
+                android:gravity="top"
+                android:enabled="false"
+                android:background="@drawable/order_edt_note_bg"
+                android:textColor="@color/black"
+                android:textSize="17dp"
+                android:hint="详细信息"
+                />
+            <Button
+                android:id="@+id/btn_code1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/searchadius"
+                android:layout_marginTop="20dp"
+                android:textColor="#fff"
+                android:textSize="20sp"
+                android:text="扫描溯源点二维码"></Button>
+
+
+            <Button
+                android:id="@+id/btn_code2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/originadius"
+                android:layout_marginTop="20dp"
+                android:textColor="#fff"
+                android:textSize="20sp"
+                android:text="扫描商品"></Button>
+        </LinearLayout>
+    </RelativeLayout>
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

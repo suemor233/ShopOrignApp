@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:paddingLeft="40dp"
+    android:layout_height="50dp">
+
+
+
+    <HorizontalScrollView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        >
+        <TextView
+            android:id="@+id/tv_place"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="存放位置"
+            android:textSize="17sp"
+            />
+    </HorizontalScrollView>
+
+
+    <HorizontalScrollView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+
+        >
+        <TextView
+            android:id="@+id/tv_data"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="详情"
+            android:textSize="17sp"
+            />
+    </HorizontalScrollView>
+
+
+
+    <HorizontalScrollView
+        android:layout_width="0dp"
+        android:layout_weight="1.2"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:layout_marginRight="5dp"
+
+        >
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="时间"
+            android:textSize="12sp"
+            />
+    </HorizontalScrollView>
+
+
+
+
+
+</LinearLayout>
