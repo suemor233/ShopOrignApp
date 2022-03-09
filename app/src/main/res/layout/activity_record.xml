@@ -24,6 +24,7 @@
             android:textSize="22sp" />
 
         <ImageView
+            android:id="@+id/iv_details"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:src="@drawable/details"

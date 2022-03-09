@@ -61,7 +61,7 @@ public class informationActivity extends BaseActivity {
                     Snackbar.make(findViewById(R.id.contentView), "输入不能为空", Snackbar.LENGTH_SHORT).show();
                     return;
                 }
-                OriginData originData = new OriginData(et_save.getText().toString(), et_information.getText().toString(), null);
+                OriginData originData = new OriginData(et_save.getText().toString(), et_information.getText().toString(), null,null);
                 Gson gson = new Gson();
                 String s = gson.toJson(originData);
                 Bitmap codeBitmap = EncodingUtils.createQRCode(s, 500, 500, null);

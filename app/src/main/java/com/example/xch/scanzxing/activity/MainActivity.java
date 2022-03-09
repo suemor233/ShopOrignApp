@@ -7,10 +7,13 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.DialogFragment;
 
 import com.example.xch.scanzxing.R;
 import com.example.xch.scanzxing.entity.GoodMessage;
@@ -19,6 +22,7 @@ import com.example.xch.scanzxing.api.Api;
 import com.example.xch.scanzxing.api.ApiConfig;
 import com.example.xch.scanzxing.entity.OriginData;
 import com.example.xch.scanzxing.entity.OriginMessage;
+import com.example.xch.scanzxing.utils.Date.DatePickerFragment;
 import com.example.xch.scanzxing.utils.DialogUtil;
 import com.example.xch.scanzxing.utils.EncodingUtils;
 import com.example.xch.scanzxing.api.TtitCallback;
@@ -39,6 +43,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private static final String DECODED_BITMAP_KEY = "codedBitmap";
     private static final int REQUEST_CODE_SCAN2 = 0x0002;
     private static final int REQUEST_CODE_SCAN3 = 0x0003;
+   public static TextView tv_date;
     LinearLayout rl_createCode,rl_distributeInformation,rl_record,rl_information,rl_distribute,rl_exit;
     public static List<OriginData> originData;
     @Override
@@ -108,6 +113,17 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private void createQR() {
         View view = View.inflate(MainActivity.this,R.layout.dialog,null);
         Spinner sp_covid = view.findViewById(R.id.sp_covid);
+
+        ImageView iv_date = view.findViewById(R.id.iv_date);
+         tv_date = view.findViewById(R.id.tv_date);
+        iv_date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DialogFragment newFragment = new DatePickerFragment();
+                newFragment.show(getSupportFragmentManager(), "datePicker");
+
+            }
+        });
         sp_covid.setAdapter(new ArrayAdapter<String >(MainActivity.this,R.layout.support_simple_spinner_dropdown_item,new String[]{"阴性","阳性"}));
         new AlertDialog.Builder(MainActivity.this).setTitle("创建产品二维码").setView(view).setNegativeButton("取消",null).setPositiveButton("确认", new DialogInterface.OnClickListener() {
             @Override
@@ -118,6 +134,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 EditText et_weight = view.findViewById(R.id.et_weight);
                 EditText et_storage = view.findViewById(R.id.et_storage);
                 EditText et_life = view.findViewById(R.id.et_life);
+                EditText et_ShelfLife = view.findViewById(R.id.et_ShelfLife);
+
                 HashMap<String, Object> params = new HashMap<>();
                 params.put("GoodName", et_goodsName.getText().toString());
                 params.put("brand", et_brand.getText().toString());
@@ -125,6 +143,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 params.put("weight", et_weight.getText().toString());
                 params.put("storage", et_storage.getText().toString());
                 params.put("life", et_life.getText().toString());
+                params.put("ProductionDate", tv_date.getText().toString());
+                params.put("ShelfLife", et_ShelfLife.getText().toString());
                 params.put("covid", sp_covid.getSelectedItem().toString().equals("阳性"));
                 //根据OkHttp请求数据进行登录校验
                 Api.config(ApiConfig.GOOD_ADD, params).postRequest(new TtitCallback() {
@@ -149,7 +169,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                                         }
                                     }).show();
                                 } else {
-                                    Snackbar.make(findViewById(R.id.contentView), goodName.getData().getError(), Snackbar.LENGTH_SHORT).show();
+                                    Snackbar.make(findViewById(R.id.contentView), goodName.getErrorMessage(), Snackbar.LENGTH_SHORT).show();
                                 }
                             }
                         });
@@ -207,11 +227,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                                     if (originMessage.getData().size() > 0) {
                                         for (int i = 0; i < originMessage.getData().size(); i++) {
                                             StringBuffer stringBuffer = StringUtils.subTime(originMessage.getData().get(i).getCreatedAt());
-                                            originData.add(new OriginData(originMessage.getData().get(i).getOriginName(), originMessage.getData().get(i).getOriginDesc(), stringBuffer.toString()));
+                                            originData.add(new OriginData(originMessage.getData().get(i).getOriginName(),originMessage.getData().get(i).getOriginDesc(),stringBuffer.toString(),originMessage.getData().get(i).getGoods()));
                                         }
                                     }else {
                                         Snackbar.make(findViewById(R.id.contentView), "请扫描商品二维码", Snackbar.LENGTH_SHORT).show();
                                     }
+                                    System.out.println(originData.toString());
                                     startActivity(new Intent(MainActivity.this,RecordActivity.class));
                                 } else {
                                     Snackbar.make(findViewById(R.id.contentView), originMessage.getErrorMessage(), Snackbar.LENGTH_SHORT).show();
@@ -233,7 +254,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             } else if (requestCode == REQUEST_CODE_SCAN3 && resultCode == RESULT_OK) {
                 HashMap<String, Object> params = new HashMap<>();
                 //根据OkHttp请求数据进行登录校验
-                params.put("id", Integer.parseInt(content));
+                params.put("id", content);
                 Api.config(ApiConfig.ORIGIN_GET, params).getRequest(new TtitCallback() {
                     @Override
                     public void onSuccess(final String res) {
@@ -242,7 +263,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                             public void run() {
                                 Gson gson = new Gson();
                                 OriginMessage originMessage = gson.fromJson(res, OriginMessage.class);
-                                System.out.println(originMessage + "==========");
                                 if (originMessage.getErrorCode().equals("00000")) {
                                     if (originMessage.getData().size() > 0) {
                                         for (int i = 0; i < originMessage.getData().size(); i++) {

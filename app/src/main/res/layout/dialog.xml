@@ -56,6 +56,34 @@
         android:hint="请输入商品储存条件"
         />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_date"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/calendar"
+            />
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_gravity="center"
+            android:textSize="15sp"
+            android:text="请选择生产日期"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/et_ShelfLife"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="8"
+        android:hint="请输入商品保质期"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"

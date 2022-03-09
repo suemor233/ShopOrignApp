@@ -53,14 +53,15 @@
         <entry key="app/src/main/res/layout/activity_information.xml" value="0.4010416666666667" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.24113475177304963" />
         <entry key="app/src/main/res/layout/activity_record.xml" value="0.403125" />
-        <entry key="app/src/main/res/layout/dialog.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/dialog.xml" value="0.45" />
+        <entry key="app/src/main/res/layout/dialog_show.xml" value="0.45" />
       </map>
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="NullableNotNullManager">
     <option name="myDefaultNullable" value="android.support.annotation.Nullable" />
-    <option name="myDefaultNotNull" value="android.support.annotation.NonNull" />
+    <option name="myDefaultNotNull" value="androidx.annotation.NonNull" />
     <option name="myNullables">
       <value>
         <list size="14">
