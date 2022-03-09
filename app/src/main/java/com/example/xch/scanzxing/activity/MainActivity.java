@@ -1,11 +1,15 @@
 package com.example.xch.scanzxing.activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
 
 import android.widget.LinearLayout;
+import android.widget.Spinner;
+
 import androidx.appcompat.app.AlertDialog;
 
 import com.example.xch.scanzxing.R;
@@ -102,11 +106,26 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     }
 
     private void createQR() {
-        DialogUtil.showAlertDialog(MainActivity.this, "创建溯源二维码", "确认", "取消", true, false, new DialogUtil.AlertDialogBtnClickListener() {
+        View view = View.inflate(MainActivity.this,R.layout.dialog,null);
+        Spinner sp_covid = view.findViewById(R.id.sp_covid);
+        sp_covid.setAdapter(new ArrayAdapter<String >(MainActivity.this,R.layout.support_simple_spinner_dropdown_item,new String[]{"阴性","阳性"}));
+        new AlertDialog.Builder(MainActivity.this).setTitle("创建产品二维码").setView(view).setNegativeButton("取消",null).setPositiveButton("确认", new DialogInterface.OnClickListener() {
             @Override
-            public void clickPositive(EditText editText, EditText editText2) {
+            public void onClick(DialogInterface dialogInterface, int i) {
+                EditText et_goodsName = view.findViewById(R.id.et_goodsName);
+                EditText et_brand = view.findViewById(R.id.et_brand);
+                EditText et_category = view.findViewById(R.id.et_category);
+                EditText et_weight = view.findViewById(R.id.et_weight);
+                EditText et_storage = view.findViewById(R.id.et_storage);
+                EditText et_life = view.findViewById(R.id.et_life);
                 HashMap<String, Object> params = new HashMap<>();
-                params.put("good_name", editText.getText().toString());
+                params.put("GoodName", et_goodsName.getText().toString());
+                params.put("brand", et_brand.getText().toString());
+                params.put("category", et_category.getText().toString());
+                params.put("weight", et_weight.getText().toString());
+                params.put("storage", et_storage.getText().toString());
+                params.put("life", et_life.getText().toString());
+                params.put("covid", sp_covid.getSelectedItem().toString().equals("阳性"));
                 //根据OkHttp请求数据进行登录校验
                 Api.config(ApiConfig.GOOD_ADD, params).postRequest(new TtitCallback() {
                     @Override
@@ -115,9 +134,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                             @Override
                             public void run() {
                                 Gson gson = new Gson();
-                                GoodName goodName = gson.fromJson(res, GoodName.class);
+                                GoodMessage goodName = gson.fromJson(res, GoodMessage.class);
                                 if (goodName.getErrorCode().equals("00000")) {
-                                    Bitmap codeBitmap = EncodingUtils.createQRCode(goodName.getData(), 500, 500, null);
+                                    Bitmap codeBitmap = EncodingUtils.createQRCode(goodName.getData().getId(), 500, 500, null);
                                     Uri uri = ImageSaveUtil.saveAlbum(MainActivity.this, codeBitmap, Bitmap.CompressFormat.JPEG, 1, true);
                                     Snackbar.make(findViewById(R.id.contentView), "二维码成功保存到相册", Snackbar.LENGTH_SHORT).setAction("分享", new View.OnClickListener() {
                                         @Override
@@ -130,7 +149,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                                         }
                                     }).show();
                                 } else {
-                                    Snackbar.make(findViewById(R.id.contentView), goodName.getErrorMessage(), Snackbar.LENGTH_SHORT).show();
+                                    Snackbar.make(findViewById(R.id.contentView), goodName.getData().getError(), Snackbar.LENGTH_SHORT).show();
                                 }
                             }
                         });
@@ -140,18 +159,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
+
                                 Snackbar.make(findViewById(R.id.contentView), "网络异常", Snackbar.LENGTH_SHORT).show();
                             }
                         });
                     }
                 });
             }
-
-            @Override
-            public void clickNegative() {
-
-            }
-        });
+        }).show();
     }
     private void recordQR() {
         Intent intent = new Intent(MainActivity.this, CaptureActivity.class);
@@ -177,18 +192,17 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             if (requestCode == REQUEST_CODE_SCAN2 && resultCode == RESULT_OK) {
                 HashMap<String, Object> params = new HashMap<>();
                 //根据OkHttp请求数据进行登录校验
-                params.put("id", Integer.parseInt(content));
+                params.put("id", content);
                 Api.config(ApiConfig.ORIGIN_GET, params).getRequest(new TtitCallback() {
                     @Override
                     public void onSuccess(final String res) {
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
+                                System.out.println(res);
                                 Gson gson = new Gson();
                                 OriginMessage originMessage = gson.fromJson(res, OriginMessage.class);
-
                                 originData.clear();
-
                                 if (originMessage.getErrorCode().equals("00000")) {
                                     if (originMessage.getData().size() > 0) {
                                         for (int i = 0; i < originMessage.getData().size(); i++) {

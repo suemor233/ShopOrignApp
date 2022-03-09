@@ -23,6 +23,15 @@
             android:textColor="@color/black"
             android:textSize="22sp" />
 
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/details"
+            android:layout_marginRight="20dp"
+            android:layout_gravity="right"
+            />
+
+
     </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"

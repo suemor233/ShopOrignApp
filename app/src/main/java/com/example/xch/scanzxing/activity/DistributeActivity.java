@@ -12,8 +12,10 @@ import com.example.xch.scanzxing.R;
 import com.example.xch.scanzxing.api.Api;
 import com.example.xch.scanzxing.api.ApiConfig;
 import com.example.xch.scanzxing.api.TtitCallback;
+import com.example.xch.scanzxing.entity.GoodMessage;
 import com.example.xch.scanzxing.entity.GoodName;
 import com.example.xch.scanzxing.entity.OriginData;
+import com.example.xch.scanzxing.entity.OriginMessage;
 import com.example.xch.scanzxing.utils.StatusBarUtil;
 import com.example.xch.scanzxing.utils.StringUtils;
 import com.example.xch.scanzxing.utils.zxing.android.CaptureActivity;
@@ -104,10 +106,9 @@ public class DistributeActivity extends BaseActivity {
                 }
             }else if (requestCode == REQUEST_CODE_SCAN2 && resultCode == RESULT_OK) {
                 HashMap<String, Object> params = new HashMap<>();
-                params.put("good_id", Integer.parseInt(content));
-                params.put("origin_name", et_save.getText().toString());
-                params.put("origin_desc", et_information.getText().toString());
-
+                params.put("GoodId", content);
+                params.put("OriginName", et_save.getText().toString());
+                params.put("OriginDesc", et_information.getText().toString());
                 Api.config(ApiConfig.CREATE_ORIGIN, params).postRequest(new TtitCallback() {
                     @Override
                     public void onSuccess(final String res) {
@@ -115,7 +116,7 @@ public class DistributeActivity extends BaseActivity {
                             @Override
                             public void run() {
                                 Gson gson = new Gson();
-                                GoodName goodName = gson.fromJson(res, GoodName.class);
+                                GoodMessage goodName = gson.fromJson(res, GoodMessage.class);
                                 if (goodName.getErrorCode().equals("00000")) {
                                     Snackbar.make(findViewById(R.id.contentView), "添加成功", Snackbar.LENGTH_SHORT).show();
                                 } else {

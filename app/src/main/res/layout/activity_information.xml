@@ -56,7 +56,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:singleLine="true"
-                    android:hint="存放位置"
+                    android:hint="当前位置"
                     />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -70,7 +70,7 @@
                 android:background="@drawable/order_edt_note_bg"
                 android:textColor="@color/black"
                 android:textSize="17dp"
-                android:hint="详细信息"
+                android:hint="当前状态"
                 />
             <Button
                 android:id="@+id/btn_create"
@@ -80,7 +80,7 @@
                 android:layout_marginTop="20dp"
                 android:textColor="#fff"
                 android:textSize="20sp"
-                android:text="创 建"></Button>
+                android:text="创 建"/>
         </LinearLayout>
     </LinearLayout>
 

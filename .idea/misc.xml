@@ -48,8 +48,12 @@
         <entry key="..\:/code/Android/ScanZxing/app/src/main/res/layout/custom_dialog_layout.xml" value="0.4466666666666667" />
         <entry key="..\:/code/Android/ScanZxing/app/src/main/res/layout/origindata.xml" value="0.2359375" />
         <entry key="..\:/code/Android/ScanZxing/app/src/main/res/xml/network_security_config.xml" value="0.2911458333333333" />
+        <entry key="app/src/main/res/drawable/searchadius.xml" value="0.2745" />
+        <entry key="app/src/main/res/layout/activity_distribute.xml" value="0.4010416666666667" />
+        <entry key="app/src/main/res/layout/activity_information.xml" value="0.4010416666666667" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.24113475177304963" />
         <entry key="app/src/main/res/layout/activity_record.xml" value="0.403125" />
+        <entry key="app/src/main/res/layout/dialog.xml" value="0.375" />
       </map>
     </option>
   </component>

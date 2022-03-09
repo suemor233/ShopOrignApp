@@ -58,16 +58,17 @@
                 android:textSize="17dp"
                 android:hint="详细信息"
                 />
+
+
             <Button
                 android:id="@+id/btn_code1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/searchadius"
                 android:layout_marginTop="20dp"
+                android:background="@drawable/searchadius"
+                android:text="扫描溯源点二维码"
                 android:textColor="#fff"
-                android:textSize="20sp"
-                android:text="扫描溯源点二维码"></Button>
-
+                android:textSize="20sp"></Button>
 
             <Button
                 android:id="@+id/btn_code2"
