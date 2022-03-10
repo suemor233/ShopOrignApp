@@ -39,13 +39,7 @@
         />
 
 
-    <EditText
-        android:id="@+id/et_storage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="8"
-        android:hint="请输入商品产地"
-        />
+
 
 
     <EditText
@@ -55,15 +49,41 @@
         android:ems="8"
         android:hint="请输入商品储存条件"
         />
-
     <LinearLayout
+        android:id="@+id/iv_storage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         >
 
         <ImageView
-            android:id="@+id/iv_date"
+
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/place"
+            />
+
+
+        <EditText
+            android:id="@+id/et_storage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="请点击图标选择商品产地"
+            android:enabled="false"
+            />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/iv_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        >
+
+        <ImageView
+
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:src="@drawable/calendar"
@@ -74,18 +94,20 @@
             android:id="@+id/tv_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="请选择生产日期"
+            android:hint="请点击图标选择生产日期"
             android:enabled="false"
             />
 
     </LinearLayout>
+
+
 
     <EditText
         android:id="@+id/et_ShelfLife"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="8"
-        android:hint="请输入商品保质期"
+        android:hint="请输入商品保质期(天)"
         />
 
     <LinearLayout

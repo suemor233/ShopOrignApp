@@ -30,7 +30,7 @@
         <activity
             android:name=".activity.RecordActivity"
             android:exported="false" />
-        <activity android:name=".activity.MainActivity">
+        <activity android:name=".activity.MainActivity" android:theme="@style/DefaultCityPickerTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

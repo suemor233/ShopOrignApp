@@ -4,10 +4,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
+import android.os.Handler;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -26,6 +26,11 @@ import com.example.xch.scanzxing.utils.ImageSaveUtil;
 import com.example.xch.scanzxing.utils.zxing.android.CaptureActivity;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
+import com.zaaach.citypicker.CityPicker;
+import com.zaaach.citypicker.adapter.OnPickListener;
+import com.zaaach.citypicker.model.City;
+import com.zaaach.citypicker.model.LocateState;
+import com.zaaach.citypicker.model.LocatedCity;
 
 import java.util.HashMap;
 
@@ -55,6 +60,8 @@ public class OriginFragment extends BaseFragment implements View.OnClickListener
     protected void initData() {
         rl_createCode.setOnClickListener(this);
         rl_record.setOnClickListener(this);
+
+
     }
 
     @Override
@@ -70,11 +77,47 @@ public class OriginFragment extends BaseFragment implements View.OnClickListener
     }
 
     private void createQR() {
+
+
         View view = View.inflate(getActivity(),R.layout.dialog,null);
         Spinner sp_covid = view.findViewById(R.id.sp_covid);
 
-        ImageView iv_date = view.findViewById(R.id.iv_date);
+        LinearLayout iv_date = view.findViewById(R.id.iv_date);
+        LinearLayout iv_storage = view.findViewById(R.id.iv_storage);
         tv_date = view.findViewById(R.id.tv_date);
+        EditText et_storage = view.findViewById(R.id.et_storage);
+        iv_storage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                CityPicker.from(getActivity()) //activity或者fragment
+                .enableAnimation(true)	//启用动画效果，默认无
+                .setLocatedCity(null)  //APP自身已定位的城市，传null会自动定位（默认）
+                .setOnPickListener(new OnPickListener() {
+                    @Override
+                    public void onPick(int position, City data) {
+                        et_storage.setText(data.getName());
+                    }
+
+                    @Override
+                    public void onCancel(){
+
+                    }
+
+                    @Override
+                    public void onLocate() {
+                        //定位接口，需要APP自身实现，这里模拟一下定位
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                CityPicker.from(getActivity()).locateComplete(new LocatedCity("常州", "常州", "101280601"), LocateState.SUCCESS);
+
+                            }
+                        }, 1000);
+                    }
+                })
+                .show();
+            }
+        });
         iv_date.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -90,7 +133,6 @@ public class OriginFragment extends BaseFragment implements View.OnClickListener
                 EditText et_brand = view.findViewById(R.id.et_brand);
                 EditText et_category = view.findViewById(R.id.et_category);
                 EditText et_weight = view.findViewById(R.id.et_weight);
-                EditText et_storage = view.findViewById(R.id.et_storage);
                 EditText et_life = view.findViewById(R.id.et_life);
                 EditText et_ShelfLife = view.findViewById(R.id.et_ShelfLife);
 
