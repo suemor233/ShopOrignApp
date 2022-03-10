@@ -1,8 +1,8 @@
 package com.example.xch.scanzxing;
 
-import org.junit.Test;
+import com.example.xch.scanzxing.utils.TImeUtils;
 
-import static org.junit.Assert.*;
+import org.junit.Test;
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -12,6 +12,6 @@ import static org.junit.Assert.*;
 public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() {
-        assertEquals(4, 2 + 2);
+        System.out.println(TImeUtils.strToDateLong("2022-03-09 00:37:59.292"));
     }
 }

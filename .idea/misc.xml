@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../../../layout/custom_preview.xml" value="0.4479166666666667" />
         <entry key="..\:/code/Android/QRCodeShop/app/src/main/res/drawable/createradius.xml" value="0.32685185185185184" />
         <entry key="..\:/code/Android/QRCodeShop/app/src/main/res/drawable/custom_dialog_button.xml" value="0.32685185185185184" />
         <entry key="..\:/code/Android/QRCodeShop/app/src/main/res/drawable/custom_dialog_content.xml" value="0.32685185185185184" />
@@ -52,9 +53,15 @@
         <entry key="app/src/main/res/layout/activity_distribute.xml" value="0.4010416666666667" />
         <entry key="app/src/main/res/layout/activity_information.xml" value="0.4010416666666667" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.24113475177304963" />
+        <entry key="app/src/main/res/layout/activity_main2.xml" value="0.42135416666666664" />
         <entry key="app/src/main/res/layout/activity_record.xml" value="0.403125" />
         <entry key="app/src/main/res/layout/dialog.xml" value="0.55" />
         <entry key="app/src/main/res/layout/dialog_show.xml" value="0.45" />
+        <entry key="app/src/main/res/layout/fragment_covid.xml" value="0.42135416666666664" />
+        <entry key="app/src/main/res/layout/fragment_logistics.xml" value="0.42135416666666664" />
+        <entry key="app/src/main/res/layout/fragment_origin.xml" value="0.42135416666666664" />
+        <entry key="app/src/main/res/layout/fragment_origin.xml.xml" value="0.42135416666666664" />
+        <entry key="app/src/main/res/layout/fragment_warehouse.xml" value="0.42135416666666664" />
       </map>
     </option>
   </component>

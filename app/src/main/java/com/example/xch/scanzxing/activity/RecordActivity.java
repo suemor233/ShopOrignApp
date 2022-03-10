@@ -1,5 +1,11 @@
 package com.example.xch.scanzxing.activity;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.DefaultItemAnimator;
@@ -7,28 +13,8 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.net.Uri;
-import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.Spinner;
-import android.widget.TextView;
 import com.example.xch.scanzxing.R;
 import com.example.xch.scanzxing.adapter.RecyclerViewAdapter;
-import com.example.xch.scanzxing.api.Api;
-import com.example.xch.scanzxing.api.ApiConfig;
-import com.example.xch.scanzxing.api.TtitCallback;
-import com.example.xch.scanzxing.entity.GoodMessage;
-import com.example.xch.scanzxing.utils.EncodingUtils;
-import com.example.xch.scanzxing.utils.ImageSaveUtil;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.gson.Gson;
-
-import java.util.HashMap;
 
 public class RecordActivity extends BaseActivity{
     RecyclerView recyclerView;

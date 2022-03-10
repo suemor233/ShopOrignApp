@@ -19,5 +19,5 @@
     <color name="white2">#C6E7EC</color>
     <color name="black">#000000</color>
     <color name="color_c0c0c0">#c0c0c0</color>
-
+    <color name="divider">#e8e7e7</color>
 </resources>

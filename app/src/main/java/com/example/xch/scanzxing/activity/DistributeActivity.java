@@ -13,9 +13,7 @@ import com.example.xch.scanzxing.api.Api;
 import com.example.xch.scanzxing.api.ApiConfig;
 import com.example.xch.scanzxing.api.TtitCallback;
 import com.example.xch.scanzxing.entity.GoodMessage;
-import com.example.xch.scanzxing.entity.GoodName;
 import com.example.xch.scanzxing.entity.OriginData;
-import com.example.xch.scanzxing.entity.OriginMessage;
 import com.example.xch.scanzxing.utils.StatusBarUtil;
 import com.example.xch.scanzxing.utils.StringUtils;
 import com.example.xch.scanzxing.utils.zxing.android.CaptureActivity;
@@ -95,6 +93,7 @@ public class DistributeActivity extends BaseActivity {
             //返回的BitMap图像
             Bitmap bitmap = data.getParcelableExtra(DECODED_BITMAP_KEY);
             // 扫描二维码/条码回传
+            System.out.println(requestCode + "  " + resultCode + " " + data);
             if (requestCode == REQUEST_CODE_SCAN1 && resultCode == RESULT_OK) {
                 Gson gson = new Gson();
                 OriginData originData = gson.fromJson(content,OriginData.class);

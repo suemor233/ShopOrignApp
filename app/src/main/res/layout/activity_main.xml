@@ -1,196 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tl="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ffffff"
     android:orientation="vertical"
-    android:id="@+id/contentView"
-    android:background="#C6E7EC"
     tools:context=".activity.MainActivity">
 
-    <RelativeLayout
+
+    <com.example.xch.scanzxing.view.FixedViewPager
+        android:id="@+id/viewpager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="40dp"
-            android:text="安全溯源管理软件"
-            android:fontFamily="@font/zt"
-            android:textColor="#000"
-            android:textSize="30sp" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#6D9398" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="10dp">
-
-                <LinearLayout
-                    android:id="@+id/rl_createCode"
-                    android:layout_width="160dp"
-                    android:layout_height="150dp"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:background="@drawable/originadius">
-
-                    <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:src="@drawable/createcode" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="创建产品二维码"
-                        android:textColor="#fff"
-                        android:textSize="20sp" />
-                </LinearLayout>
+    <com.flyco.tablayout.CommonTabLayout
+        android:id="@+id/commonTabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:background="#C6E7EC"
+        tl:tl_iconHeight="30dp"
+        tl:tl_iconWidth="30dp"
+        tl:tl_indicator_color="#2C97DE"
+        tl:tl_indicator_height="0dp"
+        tl:tl_textSelectColor="#1296DB"
+        tl:tl_textUnselectColor="#454544"
+        tl:tl_textsize="14sp"
+        tl:tl_underline_color="#DDDDDD"
+        tl:tl_underline_height="1dp" />
 
 
-                <LinearLayout
-                    android:id="@+id/rl_distributeInformation"
-                    android:layout_width="160dp"
-                    android:layout_height="150dp"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:layout_marginLeft="20dp"
-                    android:background="@drawable/grayradius">
-
-                    <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:src="@drawable/two" />
-
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="创建位置二维码"
-                        android:textColor="#fff"
-                        android:textSize="20sp" />
-                </LinearLayout>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="10dp"
-
-                >
-
-                <LinearLayout
-                    android:id="@+id/rl_record"
-                    android:layout_width="160dp"
-                    android:layout_height="150dp"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:background="@drawable/createradius">
-
-                    <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:src="@drawable/three" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="溯源查询"
-                        android:textColor="#fff"
-                        android:textSize="20sp" />
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:id="@+id/rl_information"
-                    android:layout_width="160dp"
-                    android:layout_height="150dp"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:layout_marginLeft="20dp"
-                    android:background="@drawable/searchradius2">
-
-                    <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:src="@drawable/four" />
-
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="疫情防控"
-                        android:textColor="#fff"
-                        android:textSize="20sp" />
-                </LinearLayout>
-
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:padding="10dp"
-
-                >
-
-                <LinearLayout
-                    android:id="@+id/rl_distribute"
-                    android:layout_width="160dp"
-                    android:layout_height="150dp"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:background="@drawable/searchadius">
-
-                    <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:src="@drawable/five" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="商品入库"
-                        android:textColor="#fff"
-                        android:textSize="20sp" />
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:id="@+id/rl_exit"
-                    android:layout_width="160dp"
-                    android:layout_height="150dp"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:layout_marginLeft="20dp"
-                    android:background="@drawable/grayexit">
-
-                    <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="80dp"
-                        android:layout_marginRight="7dp"
-                        android:src="@drawable/six" />
-
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="退出"
-                        android:textColor="#fff"
-                        android:textSize="20sp" />
-                </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
-    </RelativeLayout>
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</LinearLayout>

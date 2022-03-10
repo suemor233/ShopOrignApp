@@ -8,7 +8,7 @@ import android.widget.DatePicker;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
 
-import com.example.xch.scanzxing.activity.MainActivity;
+import com.example.xch.scanzxing.fragment.OriginFragment;
 
 import java.util.Calendar;
 
@@ -30,8 +30,8 @@ public class DatePickerFragment extends DialogFragment
     }
 
     public void onDateSet(DatePicker view, int year, int month, int day) {
-        if (MainActivity.tv_date != null) {
-            MainActivity.tv_date.setText(year + "-" + month + "-" + day);
+        if (OriginFragment.tv_date != null) {
+            OriginFragment.tv_date.setText(year + "-" + month + "-" + day);
         }
     }
 }

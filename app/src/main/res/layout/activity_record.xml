@@ -19,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="创建溯源点信息"
+            android:text="位置"
             android:textColor="@color/black"
             android:textSize="22sp" />
 
@@ -56,7 +56,7 @@
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="详情"
+            android:text="状态"
             android:layout_marginLeft="30dp"
             android:textSize="17sp"
             />

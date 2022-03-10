@@ -1,10 +1,10 @@
 package com.example.xch.scanzxing.utils;
 
 import java.text.ParseException;
+import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.TimeZone;
 
 public class TImeUtils {
 
@@ -28,8 +28,18 @@ public class TImeUtils {
         calendar.add(java.util.Calendar.MILLISECOND, -(zoneOffset + dstOffset));
         /** 取得的时间就是UTC标准时间 */
         Date utcDate = new Date(calendar.getTimeInMillis());
+
         return utcDate;
     }
+
+    public static Date strToDateLong(String strDate) {
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        ParsePosition pos = new ParsePosition(0);
+        Date strtodate = formatter.parse(strDate, pos);
+        return strtodate;
+    }
+
+
 
 
 }
