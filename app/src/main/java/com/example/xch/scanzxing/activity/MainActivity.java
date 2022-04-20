@@ -33,13 +33,9 @@ import java.util.List;
 //主界面的ViewPager
 public class MainActivity extends BaseActivity {
     //下方的工具栏
-    private String[] mTitles = {"商品", "仓储", "物流","疫情"};
-    private int[] mIconUnselectIds = {
-            R.mipmap.shop_unselect, R.mipmap.save_unselect,
-            R.mipmap.logistics_unselect,R.mipmap.covid_unselect};
-    private int[] mIconSelectIds = {
-            R.mipmap.shop_select, R.mipmap.save_select,
-            R.mipmap.logistics_select,R.mipmap.covid_select};
+    private String[] mTitles = new String[4];
+    private int[] mIconUnselectIds = new int[4];
+    private int[] mIconSelectIds = new int[4];
     public static List<OriginData> originData = new ArrayList<>();
 
     private ArrayList<Fragment> mFragments = new ArrayList<>();
@@ -63,13 +59,55 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-
-
+        Intent intent = getIntent();
+        String category = intent.getStringExtra("category");
         //集合添加fragment
-        mFragments.add(OriginFragment.newInstance());
-        mFragments.add(WareHouseFragment.newInstance());
-        mFragments.add(LogisticsFragment.newInstance());
-        mFragments.add(CovidFragment.newInstance(this));
+        switch (category) {
+            case "send":
+                mTitles[0] = "物流";
+                mTitles[1] = "疫情";
+                mIconUnselectIds[0] = R.mipmap.logistics_unselect;
+                mIconUnselectIds[1] = R.mipmap.covid_unselect;
+                mIconSelectIds[0] = R.mipmap.logistics_select;
+                mIconSelectIds[1] = R.mipmap.covid_select;
+                mFragments.add(LogisticsFragment.newInstance());
+                mFragments.add(CovidFragment.newInstance(this));
+                break;
+            case "supplier":
+                mTitles[0] = "商品";
+                mTitles[1] = "疫情";
+                mIconUnselectIds[0] = R.mipmap.shop_unselect;
+                mIconUnselectIds[1] = R.mipmap.covid_unselect;
+                mIconSelectIds[0] = R.mipmap.shop_select;
+                mIconSelectIds[1] = R.mipmap.covid_select;
+                mFragments.add(OriginFragment.newInstance());
+                mFragments.add(WareHouseFragment.newInstance());
+                break;
+            case "user":
+                mTitles[0] = "物流";
+                mTitles[1] = "疫情";
+                mIconUnselectIds[0] = R.mipmap.logistics_unselect;
+                mIconUnselectIds[1] = R.mipmap.covid_unselect;
+                mIconSelectIds[0] = R.mipmap.logistics_select;
+                mIconSelectIds[1] = R.mipmap.covid_select;
+                mFragments.add(LogisticsFragment.newInstance());
+                mFragments.add(CovidFragment.newInstance(this));
+                break;
+            case "warehouse":
+                mTitles[0] = "仓储";
+                mTitles[1] = "疫情";
+                mIconUnselectIds[0] = R.mipmap.save_unselect;
+                mIconUnselectIds[1] = R.mipmap.covid_unselect;
+                mIconSelectIds[0] = R.mipmap.save_select;
+                mIconSelectIds[1] = R.mipmap.covid_select;
+                mFragments.add(WareHouseFragment.newInstance());
+                mFragments.add(CovidFragment.newInstance(this));
+                break;
+
+        }
+//        mFragments.add(WareHouseFragment.newInstance());
+//        mFragments.add(LogisticsFragment.newInstance());
+//        mFragments.add(CovidFragment.newInstance(this));
         new CovidFragment(this);
         for (int i = 0; i < mTitles.length; i++) {
             mTabEntities.add(new TabEntity(mTitles[i], mIconSelectIds[i], mIconUnselectIds[i]));

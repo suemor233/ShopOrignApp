@@ -1,7 +1,9 @@
 package com.example.xch.scanzxing.fragment;
 
-import android.os.Bundle;
+import static android.content.Context.MODE_PRIVATE;
 
+import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,8 +11,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
-
 
 import org.jetbrains.annotations.NotNull;
 
@@ -32,6 +32,19 @@ public abstract class BaseFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         initData();
+    }
+    //存储sp
+    protected void saveStringToSp(String key,String val){
+        SharedPreferences sp = getActivity().getSharedPreferences("te", MODE_PRIVATE);
+        SharedPreferences.Editor edit = sp.edit();
+        edit.putString(key,val);
+        edit.apply();
+    }
+
+    //获取Sp
+    protected String getStringFromSp(String key){
+        SharedPreferences sp = getActivity().getSharedPreferences("te", MODE_PRIVATE);
+        return sp.getString(key,"");
     }
 
     protected abstract int initLayout();

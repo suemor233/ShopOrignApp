@@ -35,7 +35,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="8"
-        android:hint="请输入商品重量"
+        android:hint="请输入商品重量(吨)"
+        android:inputType="numberDecimal"
         />
 
 

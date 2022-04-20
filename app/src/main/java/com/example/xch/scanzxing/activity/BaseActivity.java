@@ -3,9 +3,11 @@ package com.example.xch.scanzxing.activity;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
@@ -30,7 +32,24 @@ public abstract class BaseActivity extends AppCompatActivity {
         if (ContextCompat.checkSelfPermission(context, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions((Activity) context, new String[]{Manifest.permission.CAMERA}, 1);
         }
+
     }
+
+    public void showToast(String msg) {
+        Toast.makeText(context, msg, Toast.LENGTH_SHORT).show();
+    }
+
+    protected void saveStringToSp(String key,String val){
+        SharedPreferences sp = getSharedPreferences("te", MODE_PRIVATE);
+        SharedPreferences.Editor edit = sp.edit();
+        edit.putString(key,val);
+        edit.apply();
+    }
+    protected String getStringFromSp(String key){
+        SharedPreferences sp = getSharedPreferences("te", MODE_PRIVATE);
+        return sp.getString(key,"");
+    }
+
     protected abstract int initLayout();
 
     protected abstract void initView();

@@ -145,9 +145,9 @@
     <string name="login_name1">登录账号</string>
     <string name="login_name2">获取更佳体验</string>
     <string name="login_username1">用户名</string>
-    <string name="login_username">用户名(3-10个字符组成)</string>
+    <string name="login_username">用户名</string>
     <string name="login_password1">密码</string>
-    <string name="login_password">密码(6-16个字符组成)</string>
+    <string name="login_password">密码</string>
     <string name="login_password_repeat">重复密码</string>
     <string name="please_login">请登录</string>
     <string name="login">登录</string>
