@@ -49,12 +49,17 @@
         <entry key="..\:/code/Android/ScanZxing/app/src/main/res/layout/custom_dialog_layout.xml" value="0.4466666666666667" />
         <entry key="..\:/code/Android/ScanZxing/app/src/main/res/layout/origindata.xml" value="0.2359375" />
         <entry key="..\:/code/Android/ScanZxing/app/src/main/res/xml/network_security_config.xml" value="0.2911458333333333" />
+        <entry key="app/src/main/res/drawable/buttonshapewhitebg.xml" value="0.235" />
+        <entry key="app/src/main/res/drawable/ic_lock_white_24dp.xml" value="0.235" />
         <entry key="app/src/main/res/drawable/searchadius.xml" value="0.2745" />
         <entry key="app/src/main/res/layout/activity_distribute.xml" value="0.4010416666666667" />
         <entry key="app/src/main/res/layout/activity_information.xml" value="0.4010416666666667" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.3532608695652174" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.24113475177304963" />
         <entry key="app/src/main/res/layout/activity_main2.xml" value="0.42135416666666664" />
         <entry key="app/src/main/res/layout/activity_record.xml" value="0.403125" />
+        <entry key="app/src/main/res/layout/activity_recyclerview.xml" value="0.31927083333333334" />
+        <entry key="app/src/main/res/layout/custom_dialog_layout.xml" value="0.31927083333333334" />
         <entry key="app/src/main/res/layout/dialog.xml" value="0.55" />
         <entry key="app/src/main/res/layout/dialog_show.xml" value="0.45" />
         <entry key="app/src/main/res/layout/fragment_covid.xml" value="0.42135416666666664" />
@@ -62,6 +67,7 @@
         <entry key="app/src/main/res/layout/fragment_origin.xml" value="0.42135416666666664" />
         <entry key="app/src/main/res/layout/fragment_origin.xml.xml" value="0.42135416666666664" />
         <entry key="app/src/main/res/layout/fragment_warehouse.xml" value="0.42135416666666664" />
+        <entry key="app/src/main/res/layout/origindata.xml" value="0.31927083333333334" />
       </map>
     </option>
   </component>

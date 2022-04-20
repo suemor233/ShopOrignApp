@@ -153,7 +153,6 @@ public class MainActivity extends BaseActivity {
                                                     }
                                                 }
                                             }
-
                                         }
                                     }else {
                                         Snackbar.make(findViewById(R.id.contentView), "请扫描商品二维码", Snackbar.LENGTH_SHORT).show();

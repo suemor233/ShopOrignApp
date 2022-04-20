@@ -125,4 +125,45 @@
 
     <string name="viewfinderview_status_text1">将二维码/条码放入取景框内</string>
     <string name="viewfinderview_status_text2">即可自动扫描</string>
+
+
+    <string name="Author">作者 Esurey</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="translation_tip">请输入要翻译的单词或者句子</string>
+    <string name="translation_tip_2">显示的结果</string>
+    <string name="toast_first_successful">收藏成功，可前往下方收藏界面查看~</string>
+    <string name="toast_successful">收藏成功</string>
+    <string name="toast_failed_2">你已经收藏过啦！</string>
+    <string name="toast_failed">请先输入内容!</string>
+    <string name="copy_successful">复制成功！</string>
+    <string name="web_title">详情</string>
+    <string name="collect_title">收藏</string>
+    <string name="my_title">我的</string>
+    <string name="my_set">设置</string>
+    <string name="my_name">欢迎来到快捷翻译</string>
+    <string name="test">test</string>
+    <string name="login_name1">登录账号</string>
+    <string name="login_name2">获取更佳体验</string>
+    <string name="login_username1">用户名</string>
+    <string name="login_username">用户名(3-10个字符组成)</string>
+    <string name="login_password1">密码</string>
+    <string name="login_password">密码(6-16个字符组成)</string>
+    <string name="login_password_repeat">重复密码</string>
+    <string name="please_login">请登录</string>
+    <string name="login">登录</string>
+    <string name="login_register">确定</string>
+    <string name="login_to_registRer">注册</string>
+    <string name="login_back">返回</string>
+    <string name="translation_id">有道智云应用ID(选填)</string>
+    <string name="translation_id_set">有道智云应用ID: </string>
+    <string name="verification">验证码</string>
+    <string name="collect_tip">当前还没有收藏的单词哦~</string>
+    <string name="used">常用</string>
+    <string name="quick_copy">快捷复制</string>
+    <string name="ID">应用ID:</string>
+    <string name="save">保存</string>
+    <string name="quick">打开程序自动弹出输入法</string>
+    <string name="auto_read">自动读取剪贴板</string>
+    <string name="login_wait">暂不登录</string>
+    <string name="translation_detailed">详细翻译</string>
 </resources>

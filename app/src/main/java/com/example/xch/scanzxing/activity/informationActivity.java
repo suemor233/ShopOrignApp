@@ -1,7 +1,5 @@
 package com.example.xch.scanzxing.activity;
 
-import androidx.appcompat.widget.Toolbar;
-
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -9,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.xch.scanzxing.R;
 import com.example.xch.scanzxing.entity.OriginData;
@@ -19,7 +19,7 @@ import com.example.xch.scanzxing.utils.StringUtils;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 
-public class informationActivity extends BaseActivity {
+public class  informationActivity extends BaseActivity {
     private EditText et_save,et_information;
     Button btn_create;
     ImageView iv_code;

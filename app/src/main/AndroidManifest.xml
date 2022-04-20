@@ -4,7 +4,6 @@
 
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
-
     <uses-permission android:name="android.permission.INTERNET" /> <!-- 获取WiFi状态 -->
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- 获取网络信息状态，如当前的网络连接是否有效 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 读取手机状态 phone group -->
@@ -13,6 +12,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- 储存权限 -->
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- 拍照权限 -->
     <uses-permission android:name="android.permission.CAMERA" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -22,6 +22,25 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".activity.user.SendActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.user.UserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.user.WarehouseActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.user.SupplierActivity"
+            android:exported="false" />
+        <activity android:name=".activity.user.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".activity.DistributeActivity"
             android:exported="false" />
         <activity
@@ -30,13 +49,9 @@
         <activity
             android:name=".activity.RecordActivity"
             android:exported="false" />
-        <activity android:name=".activity.MainActivity" android:theme="@style/DefaultCityPickerTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity
+            android:name=".activity.MainActivity"
+            android:theme="@style/DefaultCityPickerTheme" />
         <activity
             android:name=".utils.zxing.android.CaptureActivity"
             android:screenOrientation="portrait"
